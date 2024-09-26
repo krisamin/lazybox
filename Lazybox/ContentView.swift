@@ -26,7 +26,7 @@ struct ContentView: View {
                   UIScrollView.appearance().isScrollEnabled = false
             }
             HStack(spacing: 20) {
-                Text("Lazy box")
+                Text("box")
                     .font(.system(size: 28, weight: .medium))
                     .foregroundStyle(tabSelection == 0 ? Color("Text") : Color("Dim"))
                     .onTapGesture {
@@ -34,14 +34,14 @@ struct ContentView: View {
                         tabSelection = 0
                     }
                 Spacer()
-                Text("Settings")
+                Text("settings")
                     .font(.system(size: 28, weight: .medium))
                     .foregroundStyle(tabSelection == 1 ? Color("Text") : Color("Dim"))
                     .onTapGesture {
                         hapticTrigger += 1
                         tabSelection = 1
                     }
-                Text("New")
+                Text("new")
                     .font(.system(size: 28, weight: .medium))
                     .foregroundStyle(Color("Dim"))
             }
