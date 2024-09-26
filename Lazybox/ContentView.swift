@@ -9,12 +9,12 @@ import SwiftUI
 import MasonryStack
 
 struct ContentView: View {
-    @State private var selectedTab = 0
+    @State private var tabSelection = 0
     @State private var hapticTrigger = 0
 
     var body: some View {
         VStack {
-            TabView(selection: $selectedTab) {
+            TabView(selection: $tabSelection) {
                 HomeScreen()
                     .tag(0)
                 SettingsScreen()
@@ -28,18 +28,18 @@ struct ContentView: View {
             HStack(spacing: 20) {
                 Text("Lazy box")
                     .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(selectedTab == 0 ? Color("Text") : Color("Dim"))
+                    .foregroundStyle(tabSelection == 0 ? Color("Text") : Color("Dim"))
                     .onTapGesture {
                         hapticTrigger += 1
-                        selectedTab = 0
+                        tabSelection = 0
                     }
                 Spacer()
                 Text("Settings")
                     .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(selectedTab == 1 ? Color("Text") : Color("Dim"))
+                    .foregroundStyle(tabSelection == 1 ? Color("Text") : Color("Dim"))
                     .onTapGesture {
                         hapticTrigger += 1
-                        selectedTab = 1
+                        tabSelection = 1
                     }
                 Text("New")
                     .font(.system(size: 28, weight: .medium))

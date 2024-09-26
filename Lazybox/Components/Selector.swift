@@ -11,19 +11,23 @@ struct Selector: View {
     let keys: [String]
     @Binding var selected: String
 
+    @State private var hapticTrigger = 0
+
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 10) {
                 ForEach(keys, id: \.self) { key in
                     SelectorItem(key: key, isSelected: selected == key)
                         .onTapGesture {
+                            hapticTrigger += 1
                             selected = key
                         }
                 }
             }
+            .padding([.horizontal], 10)
         }
-        .padding([.horizontal], 10)
         .scrollIndicators(.hidden)
+        .sensoryFeedback(.increase, trigger: hapticTrigger)
     }
 }
 

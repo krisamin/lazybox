@@ -24,4 +24,5 @@ enum Settings: String, CaseIterable {
     case general = "General"
     case appearance = "Appearance"
     case support = "Support"
+    case advanced = "Advanced"
 }
