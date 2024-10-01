@@ -11,23 +11,20 @@ struct Selector: View {
     let keys: [String]
     @Binding var selected: String
 
-    @State private var hapticTrigger = 0
-
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: 10) {
+            HStack(spacing: 6) {
                 ForEach(keys, id: \.self) { key in
                     SelectorItem(key: key, isSelected: selected == key)
                         .onTapGesture {
-                            hapticTrigger += 1
                             selected = key
                         }
                 }
             }
-            .padding([.horizontal], 10)
+            .padding([.horizontal], 6)
         }
         .scrollIndicators(.hidden)
-        .sensoryFeedback(.increase, trigger: hapticTrigger)
+        .sensoryFeedback(.selection, trigger: selected)
     }
 }
 
@@ -41,9 +38,14 @@ struct SelectorItem: View {
                 .font(.system(size: 16, weight: .medium))
                 .foregroundStyle(isSelected ? Color("Background") : Color("Text"))
         }
-        .padding([.horizontal], 15)
-        .padding([.vertical], 10)
-        .background(isSelected ? Color("Text") : .clear)
-        .border(isSelected ? Color("Text") : Color("Border"), width: 1)
+        .padding([.horizontal], 16)
+        .padding([.vertical], 12)
+        .background(isSelected ? Color("Text") : Color("Card"))
+        .cornerRadius(22)
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .inset(by: 0.5)
+                .stroke(isSelected ? Color("Text") : Color("Border"), lineWidth: 1)
+        )
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsScreen: View {
+struct SettingsView: View {
     @State private var selected = Settings.general.rawValue
 
     var body: some View {

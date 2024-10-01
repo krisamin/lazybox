@@ -10,47 +10,57 @@ import MasonryStack
 
 struct ContentView: View {
     @State private var tabSelection = 0
-    @State private var hapticTrigger = 0
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             TabView(selection: $tabSelection) {
-                HomeScreen()
+                HomeView()
                     .tag(0)
-                SettingsScreen()
+                SettingsView()
                     .tag(1)
+                NewView()
+                    .tag(2)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .ignoresSafeArea()
             .onAppear {
                   UIScrollView.appearance().isScrollEnabled = false
             }
-            HStack(spacing: 20) {
-                Text("box")
-                    .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(tabSelection == 0 ? Color("Text") : Color("Dim"))
+            HStack(spacing: 24) {
+                NavbarItem(title: "box", selected: tabSelection == 0)
                     .onTapGesture {
-                        hapticTrigger += 1
                         tabSelection = 0
                     }
                 Spacer()
-                Text("settings")
-                    .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(tabSelection == 1 ? Color("Text") : Color("Dim"))
+                NavbarItem(title: "settings", selected: tabSelection == 1)
                     .onTapGesture {
-                        hapticTrigger += 1
                         tabSelection = 1
                     }
-                Text("new")
-                    .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(Color("Dim"))
+                NavbarItem(title: "new", selected: tabSelection == 2)
+                    .onTapGesture {
+                        tabSelection = 2
+                    }
             }
-            .padding([.horizontal, .bottom], 10)
-            .sensoryFeedback(.increase, trigger: hapticTrigger)
+            .padding(6)
+            .sensoryFeedback(.selection, trigger: tabSelection)
         }
     }
 }
 
+struct NavbarItem: View {
+    let title: String
+    let selected: Bool
+
+    var body: some View {
+        Text(title)
+            .font(.system(size: 28, weight: .medium))
+            .foregroundStyle(selected ? Color("Text") : Color("Dim"))
+    }
+}
+
 #Preview {
+    let preview = Preview(Link.self)
+
     ContentView()
+        .modelContainer(preview.container)
 }
