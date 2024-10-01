@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7366DF502CABF01600083A62 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73F43E0E2CA531BF005AEC6C /* MasonryStack */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7366DF582CABF01600083A62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B48A672CA521CA0075C52A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7366DF4F2CABF01600083A62;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7366DF002CABE93000083A62 /* Embed Foundation Extensions */ = {
@@ -17,6 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -24,10 +36,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7366DF502CABF01600083A62 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B48A6F2CA521CA0075C52A /* Lazybox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lazybox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7366DF5E2CABF01600083A62 /* Exceptions for "ShareExtension" folder in "ShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
+		};
+		7366DF622CAC121300083A62 /* Exceptions for "Lazybox" folder in "ShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Link.swift,
+			);
+			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
+		};
 		73B48A932CA5226C0075C52A /* Exceptions for "Lazybox" folder in "Lazybox" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -38,10 +65,19 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7366DF512CABF01600083A62 /* ShareExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7366DF5E2CABF01600083A62 /* Exceptions for "ShareExtension" folder in "ShareExtension" target */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		73B48A712CA521CA0075C52A /* Lazybox */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				73B48A932CA5226C0075C52A /* Exceptions for "Lazybox" folder in "Lazybox" target */,
+				7366DF622CAC121300083A62 /* Exceptions for "Lazybox" folder in "ShareExtension" target */,
 			);
 			path = Lazybox;
 			sourceTree = "<group>";
@@ -49,6 +85,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7366DF4D2CABF01600083A62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73B48A6C2CA521CA0075C52A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				73B48A712CA521CA0075C52A /* Lazybox */,
+				7366DF512CABF01600083A62 /* ShareExtension */,
 				73B48A702CA521CA0075C52A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				73B48A6F2CA521CA0075C52A /* Lazybox.app */,
+				7366DF502CABF01600083A62 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +124,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7366DF4F2CABF01600083A62 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7366DF5D2CABF01600083A62 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				7366DF4C2CABF01600083A62 /* Sources */,
+				7366DF4D2CABF01600083A62 /* Frameworks */,
+				7366DF4E2CABF01600083A62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7366DF512CABF01600083A62 /* ShareExtension */,
+			);
+			name = ShareExtension;
+			packageProductDependencies = (
+			);
+			productName = ShareExtension;
+			productReference = 7366DF502CABF01600083A62 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		73B48A6E2CA521CA0075C52A /* Lazybox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73B48A7E2CA521CB0075C52A /* Build configuration list for PBXNativeTarget "Lazybox" */;
@@ -92,6 +159,7 @@
 			);
 			dependencies = (
 				73AE45132CA559F3001292BC /* PBXTargetDependency */,
+				7366DF592CABF01600083A62 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				73B48A712CA521CA0075C52A /* Lazybox */,
@@ -114,6 +182,9 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					7366DF4F2CABF01600083A62 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					73B48A6E2CA521CA0075C52A = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -138,11 +209,19 @@
 			projectRoot = "";
 			targets = (
 				73B48A6E2CA521CA0075C52A /* Lazybox */,
+				7366DF4F2CABF01600083A62 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7366DF4E2CABF01600083A62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73B48A6D2CA521CA0075C52A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +232,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7366DF4C2CABF01600083A62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73B48A6B2CA521CA0075C52A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +249,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7366DF592CABF01600083A62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
+			targetProxy = 7366DF582CABF01600083A62 /* PBXContainerItemProxy */;
+		};
 		73AE45132CA559F3001292BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 73AE45122CA559F3001292BC /* SwiftLintBuildToolPlugin */;
@@ -170,6 +261,63 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7366DF5B2CABF01600083A62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.lazybox.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7366DF5C2CABF01600083A62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.lazybox.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		73B48A7C2CA521CB0075C52A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -379,6 +527,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7366DF5D2CABF01600083A62 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7366DF5B2CABF01600083A62 /* Debug */,
+				7366DF5C2CABF01600083A62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73B48A6A2CA521CA0075C52A /* Build configuration list for PBXProject "Lazybox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

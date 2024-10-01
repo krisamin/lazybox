@@ -21,7 +21,11 @@ struct LazyboxApp: App {
 
     init() {
         let schema = Schema([Link.self])
-        let config = ModelConfiguration("Lazybox", schema: schema)
+        let config = ModelConfiguration(
+            "Lazybox",
+            schema: schema,
+            groupContainer: .identifier("group.kr.isamin.lazybox")
+        )
 
         do {
             container = try ModelContainer(for: schema, configurations: config)
