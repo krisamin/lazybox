@@ -1,8 +1,16 @@
 //
-//  LazyboxApp.swift
-//  Lazybox
+//  ██   ██ ██████  ██ ███████  █████  ███    ███ ██ ███    ██
+//  ██  ██  ██   ██ ██ ██      ██   ██ ████  ████ ██ ████   ██
+//  █████   ██████  ██ ███████ ███████ ██ ████ ██ ██ ██ ██  ██
+//  ██  ██  ██   ██ ██      ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+//  ██   ██ ██   ██ ██ ███████ ██   ██ ██      ██ ██ ██   ████
 //
-//  Created by noViceMin on 9/26/24.
+//  https://isamin.kr
+//  https://github.com/krisamin
+//
+//  Created : 9/26/24
+//  Package : Lazybox
+//  File    : LazyboxApp.swift
 //
 
 import SwiftData

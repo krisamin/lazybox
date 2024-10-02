@@ -1,8 +1,16 @@
 //
-//  ShareViewController.swift
-//  ShareExtension
+//  ██   ██ ██████  ██ ███████  █████  ███    ███ ██ ███    ██
+//  ██  ██  ██   ██ ██ ██      ██   ██ ████  ████ ██ ████   ██
+//  █████   ██████  ██ ███████ ███████ ██ ████ ██ ██ ██ ██  ██
+//  ██  ██  ██   ██ ██      ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+//  ██   ██ ██   ██ ██ ███████ ██   ██ ██      ██ ██ ██   ████
 //
-//  Created by noViceMin on 10/1/24.
+//  https://isamin.kr
+//  https://github.com/krisamin
+//
+//  Created : 10/1/24
+//  Package : Lazybox
+//  File    : ShareViewController.swift
 //
 
 import SwiftData
@@ -44,31 +52,33 @@ class ShareViewController: UIViewController {
 
     private func process(item: Any?, error: Error?, identifier: String) {
         if let error = error {
-            print("타입 \(identifier) 로드 오류: \(error.localizedDescription)")
+            print("Error loading type \(identifier): \(error.localizedDescription)")
             return
         }
 
-        if let urlString = item as? String {
-            handle(urlString)
+        if let urlString = item as? String,
+            let url = URL(string: urlString)
+        {
+            handle(url)
         } else if let url = item as? URL {
-            handle(url.absoluteString)
+            handle(url)
         } else if let data = item as? Data,
             let url = URL(
                 dataRepresentation: data,
                 relativeTo: nil
             )
         {
-            handle(url.absoluteString)
+            handle(url)
         } else {
-            print("지원되지 않는 항목 형식: \(String(describing: item))")
+            print("Unsupported item format: \(String(describing: item))")
         }
     }
 
-    private func handle(_ urlString: String) {
+    private func handle(_ url: URL) {
         let container = self.setupModelContainer()
         let contentView = UIHostingController(
             rootView: NewLink(
-                url: URL(string: urlString)!,
+                url: .constant(url),
                 onDismiss: { [weak self] in
                     self?.close()
                 }

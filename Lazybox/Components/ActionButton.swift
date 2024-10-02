@@ -8,22 +8,32 @@
 //  https://isamin.kr
 //  https://github.com/krisamin
 //
-//  Created : 9/26/24
+//  Created : 10/3/24
 //  Package : Lazybox
-//  File    : Text.swift
+//  File    : ActionButton.swift
 //
 
 import SwiftUI
 
-enum FontWantedSansType: String {
-    case regular = "WantedSans-Regular"
-    case medium = "WantedSans-Medium"
-    case semibold = "WantedSans-SemiBold"
-    case bold = "WantedSans-Bold"
-}
+struct ActionButton: View {
+    let title: String
+    let image: String
 
-extension Font {
-    static func system(size: CGFloat, weight: FontWantedSansType = .regular) -> Font {
-        self.custom(weight.rawValue, size: size)
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.system(size: 16))
+            Spacer()
+            Image(image)
+                .foregroundStyle(Color("Text"))
+        }
+        .padding(12)
+        .background(Color("Card"))
+        .cornerRadius(18)
+        .overlay(
+            RoundedRectangle(cornerRadius: 18)
+                .inset(by: 0.5)
+                .stroke(Color("Border"), lineWidth: 1)
+        )
     }
 }

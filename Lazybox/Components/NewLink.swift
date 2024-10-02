@@ -1,8 +1,16 @@
 //
-//  NewLink.swift
-//  Lazybox
+//  ██   ██ ██████  ██ ███████  █████  ███    ███ ██ ███    ██
+//  ██  ██  ██   ██ ██ ██      ██   ██ ████  ████ ██ ████   ██
+//  █████   ██████  ██ ███████ ███████ ██ ████ ██ ██ ██ ██  ██
+//  ██  ██  ██   ██ ██      ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+//  ██   ██ ██   ██ ██ ███████ ██   ██ ██      ██ ██ ██   ████
 //
-//  Created by noViceMin on 10/2/24.
+//  https://isamin.kr
+//  https://github.com/krisamin
+//
+//  Created : 10/2/24
+//  Package : Lazybox
+//  File    : NewLink.swift
 //
 
 import MasonryStack
@@ -14,7 +22,7 @@ struct NewLink: View {
     @State private var saving = false
     @StateObject private var model = LinkInfoFetchModel()
 
-    let url: URL
+    @Binding var url: URL?
     let onDismiss: () -> Void
 
     var body: some View {
@@ -37,7 +45,7 @@ struct NewLink: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             HStack {
-                Chip(title: url.absoluteString, filled: false, fill: true)
+                Chip(title: url?.absoluteString ?? "", filled: false, fill: true)
                 Chip(title: "Save", filled: true)
                     .onTapGesture { saveAndDismiss() }
                 Chip(title: "Cancel", filled: false)
@@ -47,8 +55,13 @@ struct NewLink: View {
             .padding([.horizontal, .bottom], 6)
         }
         .background(Color("Background"))
-        .onAppear { model.fetch(from: url) }
         .disabled(saving)
+        .onAppear {
+            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+            if let url = url {
+                model.fetch(from: url)
+            }
+        }
     }
 
     private func saveAndDismiss() {

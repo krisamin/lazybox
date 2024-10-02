@@ -1,8 +1,16 @@
 //
-//  Chip.swift
-//  Lazybox
+//  ██   ██ ██████  ██ ███████  █████  ███    ███ ██ ███    ██
+//  ██  ██  ██   ██ ██ ██      ██   ██ ████  ████ ██ ████   ██
+//  █████   ██████  ██ ███████ ███████ ██ ████ ██ ██ ██ ██  ██
+//  ██  ██  ██   ██ ██      ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+//  ██   ██ ██   ██ ██ ███████ ██   ██ ██      ██ ██ ██   ████
 //
-//  Created by noViceMin on 10/2/24.
+//  https://isamin.kr
+//  https://github.com/krisamin
+//
+//  Created : 10/2/24
+//  Package : Lazybox
+//  File    : Chip.swift
 //
 
 import SwiftUI

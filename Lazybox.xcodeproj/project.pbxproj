@@ -54,6 +54,7 @@
 		7366DF622CAC121300083A62 /* Exceptions for "Lazybox" folder in "ShareExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Components/ActionButton.swift,
 				Components/Chip.swift,
 				Components/NewLink.swift,
 				Models/Link.swift,

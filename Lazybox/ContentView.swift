@@ -1,8 +1,16 @@
 //
-//  ContentView.swift
-//  Lazybox
+//  ██   ██ ██████  ██ ███████  █████  ███    ███ ██ ███    ██
+//  ██  ██  ██   ██ ██ ██      ██   ██ ████  ████ ██ ████   ██
+//  █████   ██████  ██ ███████ ███████ ██ ████ ██ ██ ██ ██  ██
+//  ██  ██  ██   ██ ██      ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+//  ██   ██ ██   ██ ██ ███████ ██   ██ ██      ██ ██ ██   ████
 //
-//  Created by noViceMin on 9/26/24.
+//  https://isamin.kr
+//  https://github.com/krisamin
+//
+//  Created : 9/26/24
+//  Package : Lazybox
+//  File    : ContentView.swift
 //
 
 import MasonryStack
@@ -14,6 +22,9 @@ struct ContentView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Query(sort: \Link.dateAdded, order: .reverse) private var links: [Link]
 
+    @State private var url: URL?
+    @State private var newLink = false
+
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
@@ -23,6 +34,8 @@ struct ContentView: View {
                         : Int(round(Float(proxy.size.width) / 300.0)),
                     spacing: 6
                 ) {
+                    ActionButton(title: "Paste", image: "Paste")
+                        .onTapGesture(perform: paste)
                     ForEach(links) { link in
                         LazyVStack {
                             LinkBox(link: link)
@@ -40,6 +53,23 @@ struct ContentView: View {
                 .padding(6)
             }
             .scrollIndicators(.hidden)
+            .sheet(
+                isPresented: $newLink,
+                content: {
+                    NewLink(url: $url) {
+                        newLink = false
+                    }
+                }
+            )
+        }
+    }
+
+    func paste() {
+        if let pasteString = UIPasteboard.general.url {
+            if let url = URL(string: pasteString.absoluteString) {
+                self.url = url
+                newLink = true
+            }
         }
     }
 }
