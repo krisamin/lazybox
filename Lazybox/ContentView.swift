@@ -43,8 +43,21 @@ struct ContentView: View {
                                     UIApplication.shared.open(URL(string: link.url)!)
                                 }
                                 .contextMenu {
-                                    Button("Delete", role: .destructive) {
+                                    Button {
+                                        UIPasteboard.general.url = URL(string: link.url)
+                                    } label: {
+                                        Label("Copy", systemImage: "doc.on.doc")
+                                    }
+                                    ShareLink(
+                                        item: URL(string: link.url)!
+                                    ) {
+                                        Label("Share", systemImage: "square.and.arrow.up")
+                                    }
+                                    Divider()
+                                    Button(role: .destructive) {
                                         context.delete(link)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
                                     }
                                 }
                         }
