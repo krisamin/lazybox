@@ -5,9 +5,9 @@
 //  Created by noViceMin on 10/1/24.
 //
 
-import SwiftUI
-import SwiftData
 import LinkPresentation
+import SwiftData
+import SwiftUI
 
 @Model
 class Link {
@@ -65,7 +65,8 @@ class LinkInfoFetchModel: ObservableObject {
 
     func fetchMetadata(from url: URL) async throws -> LinkInfo {
         let metadataProvider = LPMetadataProvider()
-        let metadata = try await metadataProvider.startFetchingMetadata(for: url)
+        let metadata = try await metadataProvider.startFetchingMetadata(
+            for: url)
 
         guard let title = metadata.title else {
             throw FetchError.invalidMetadata
@@ -83,7 +84,9 @@ class LinkInfoFetchModel: ObservableObject {
         )
     }
 
-    private func loadImage(from provider: NSItemProvider?) async throws -> UIImage? {
+    private func loadImage(from provider: NSItemProvider?) async throws
+        -> UIImage?
+    {
         guard let provider = provider else { return nil }
 
         return try await withCheckedThrowingContinuation { continuation in

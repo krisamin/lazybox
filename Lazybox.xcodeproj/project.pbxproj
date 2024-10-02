@@ -54,7 +54,6 @@
 			membershipExceptions = (
 				Components/Chip.swift,
 				Components/NewLink.swift,
-				Components/Selector.swift,
 				Models/Link.swift,
 				Resources/Colors.xcassets,
 				"Resources/Fonts/WantedSans-Black.ttf",

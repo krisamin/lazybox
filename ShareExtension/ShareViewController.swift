@@ -5,8 +5,8 @@
 //  Created by noViceMin on 10/1/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 import UniformTypeIdentifiers
 
 @objc(ShareViewController)
@@ -15,7 +15,8 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
 
         guard let item = extensionContext?.inputItems.first as? NSExtensionItem,
-              let attachment = item.attachments?.first else {
+            let attachment = item.attachments?.first
+        else {
             self.close()
             return
         }
@@ -23,7 +24,7 @@ class ShareViewController: UIViewController {
         let typeIdentifiers = [
             UTType.url.identifier,
             UTType.text.identifier,
-            "public.file-url"
+            "public.file-url",
         ]
         for identifier in typeIdentifiers {
             attachment.loadItem(
@@ -51,10 +52,12 @@ class ShareViewController: UIViewController {
             handle(urlString)
         } else if let url = item as? URL {
             handle(url.absoluteString)
-        } else if let data = item as? Data, let url = URL(
-            dataRepresentation: data,
-            relativeTo: nil
-        ) {
+        } else if let data = item as? Data,
+            let url = URL(
+                dataRepresentation: data,
+                relativeTo: nil
+            )
+        {
             handle(url.absoluteString)
         } else {
             print("지원되지 않는 항목 형식: \(String(describing: item))")
@@ -68,7 +71,8 @@ class ShareViewController: UIViewController {
                 url: URL(string: urlString)!,
                 onDismiss: { [weak self] in
                     self?.close()
-                })
+                }
+            )
             .modelContainer(container)
         )
 
@@ -78,9 +82,12 @@ class ShareViewController: UIViewController {
         contentView.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.view.topAnchor.constraint(equalTo: self.view.topAnchor),
-            contentView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            contentView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            contentView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            contentView.view.bottomAnchor.constraint(
+                equalTo: self.view.bottomAnchor),
+            contentView.view.leadingAnchor.constraint(
+                equalTo: self.view.leadingAnchor),
+            contentView.view.trailingAnchor.constraint(
+                equalTo: self.view.trailingAnchor),
         ])
     }
 
@@ -90,7 +97,7 @@ class ShareViewController: UIViewController {
             completionHandler: nil
         )
     }
-    
+
     private func setupModelContainer() -> ModelContainer {
         let schema = Schema([Link.self])
         let config = ModelConfiguration(

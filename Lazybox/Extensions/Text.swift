@@ -15,7 +15,9 @@ enum FontWantedSansType: String {
 }
 
 extension Font {
-    static func system(size: CGFloat, weight: FontWantedSansType = .regular) -> Font {
+    static func system(size: CGFloat, weight: FontWantedSansType = .regular)
+        -> Font
+    {
         self.custom(weight.rawValue, size: size)
     }
 }

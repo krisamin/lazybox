@@ -5,8 +5,8 @@
 //  Created by noViceMin on 9/26/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct LazyboxApp: App {
