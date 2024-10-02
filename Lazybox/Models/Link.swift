@@ -71,7 +71,7 @@ class LinkInfoFetchModel: ObservableObject {
             throw FetchError.invalidMetadata
         }
         let desc = metadata.value(forKey: "_summary") as? String ?? ""
-        let host = url.host ?? ""
+        let host = (url.host ?? "").replacingOccurrences(of: "www.", with: "")
         let image = try? await loadImage(from: metadata.imageProvider)
 
         return LinkInfo(

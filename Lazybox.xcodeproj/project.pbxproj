@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7366DF502CABF01600083A62 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73D50C6D2CACE172004B71EE /* MasonryStack */; };
 		73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73F43E0E2CA531BF005AEC6C /* MasonryStack */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +52,18 @@
 		7366DF622CAC121300083A62 /* Exceptions for "Lazybox" folder in "ShareExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Components/Chip.swift,
+				Components/NewLink.swift,
+				Components/Selector.swift,
 				Models/Link.swift,
+				Resources/Colors.xcassets,
+				"Resources/Fonts/WantedSans-Black.ttf",
+				"Resources/Fonts/WantedSans-Bold.ttf",
+				"Resources/Fonts/WantedSans-ExtraBlack.ttf",
+				"Resources/Fonts/WantedSans-ExtraBold.ttf",
+				"Resources/Fonts/WantedSans-Medium.ttf",
+				"Resources/Fonts/WantedSans-Regular.ttf",
+				"Resources/Fonts/WantedSans-SemiBold.ttf",
 			);
 			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
 		};
@@ -89,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +121,7 @@
 			children = (
 				73B48A712CA521CA0075C52A /* Lazybox */,
 				7366DF512CABF01600083A62 /* ShareExtension */,
+				73D50C6C2CACE172004B71EE /* Frameworks */,
 				73B48A702CA521CA0075C52A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +133,13 @@
 				7366DF502CABF01600083A62 /* ShareExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		73D50C6C2CACE172004B71EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +162,7 @@
 			);
 			name = ShareExtension;
 			packageProductDependencies = (
+				73D50C6D2CACE172004B71EE /* MasonryStack */,
 			);
 			productName = ShareExtension;
 			productReference = 7366DF502CABF01600083A62 /* ShareExtension.appex */;
@@ -580,6 +602,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 73AE45112CA559DC001292BC /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		73D50C6D2CACE172004B71EE /* MasonryStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */;
+			productName = MasonryStack;
 		};
 		73F43E0E2CA531BF005AEC6C /* MasonryStack */ = {
 			isa = XCSwiftPackageProductDependency;
