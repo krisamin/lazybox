@@ -20,21 +20,14 @@ struct ContentView: View {
                 MasonryVStack(
                     columns: horizontalSizeClass == .compact
                         ? 2
-                        : Int(
-                            round(
-                                Float(
-                                    proxy.size.width
-                                ) / 300.0
-                            )
-                        ),
+                        : Int(round(Float(proxy.size.width) / 300.0)),
                     spacing: 6
                 ) {
                     ForEach(links) { link in
                         LazyVStack {
                             LinkBox(link: link)
                                 .onTapGesture {
-                                    UIApplication.shared.open(
-                                        URL(string: link.url)!)
+                                    UIApplication.shared.open(URL(string: link.url)!)
                                 }
                                 .contextMenu {
                                     Button("Delete", role: .destructive) {

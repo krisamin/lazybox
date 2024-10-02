@@ -82,12 +82,9 @@ class ShareViewController: UIViewController {
         contentView.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.view.topAnchor.constraint(equalTo: self.view.topAnchor),
-            contentView.view.bottomAnchor.constraint(
-                equalTo: self.view.bottomAnchor),
-            contentView.view.leadingAnchor.constraint(
-                equalTo: self.view.leadingAnchor),
-            contentView.view.trailingAnchor.constraint(
-                equalTo: self.view.trailingAnchor),
+            contentView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            contentView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            contentView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
 

@@ -21,45 +21,33 @@ struct NewLink: View {
         VStack(alignment: .leading, spacing: 6) {
             if let info = model.info {
                 ScrollView {
-                    MasonryVStack(
-                        columns: 2,
-                        spacing: 6
-                    ) {
+                    MasonryVStack(columns: 2, spacing: 6) {
                         NewLinkBox(title: "Title", content: info.title)
                         NewLinkBox(title: "Description", content: info.desc)
                         if let image = info.image {
                             NewLinkBox(title: "Preview", image: image)
                         }
                         NewLinkBox(title: "Host", content: info.host)
-                    }
-                    .padding([.horizontal, .top], 6)
-                }
-                .scrollIndicators(.hidden)
+                    }.padding([.horizontal, .top], 6)
+                }.scrollIndicators(.hidden)
             } else {
                 VStack {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             HStack {
                 Chip(title: url.absoluteString, filled: false, fill: true)
                 Chip(title: "Save", filled: true)
-                    .onTapGesture {
-                        saveAndDismiss()
-                    }
+                    .onTapGesture { saveAndDismiss() }
                 Chip(title: "Cancel", filled: false)
-                    .onTapGesture {
-                        onDismiss()
-                    }
+                    .onTapGesture { onDismiss() }
             }
             .frame(maxWidth: .infinity)
             .padding([.horizontal, .bottom], 6)
         }
         .background(Color("Background"))
-        .onAppear {
-            model.fetch(from: url)
-        }
+        .onAppear { model.fetch(from: url) }
         .disabled(saving)
     }
 

@@ -23,7 +23,9 @@ struct Chip: View {
             Text(title)
                 .font(.system(size: 16, weight: .medium))
                 .foregroundStyle(
-                    filled ? Color("Background") : Color("Text")
+                    filled
+                        ? Color("Background")
+                        : Color("Text")
                 )
                 .lineLimit(1)
                 .frame(maxWidth: fill ? .infinity : nil, alignment: .leading)
@@ -31,14 +33,18 @@ struct Chip: View {
         .padding([.horizontal], 16)
         .padding([.vertical], 12)
         .background(
-            filled ? Color("Text") : Color("Card")
+            filled
+                ? Color("Text")
+                : Color("Card")
         )
         .cornerRadius(22)
         .overlay(
             RoundedRectangle(cornerRadius: 22)
                 .inset(by: 0.5)
                 .stroke(
-                    filled ? Color("Text") : Color("Border"),
+                    filled
+                        ? Color("Text")
+                        : Color("Border"),
                     lineWidth: 1
                 )
         )

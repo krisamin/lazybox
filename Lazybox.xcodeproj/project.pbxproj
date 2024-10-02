@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7366DF502CABF01600083A62 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73D50C6D2CACE172004B71EE /* MasonryStack */; };
+		73DA12662CAD8D6D000FB30D /* .swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 73DA12652CAD8D6D000FB30D /* .swift-format */; };
 		73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73F43E0E2CA531BF005AEC6C /* MasonryStack */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		7366DF502CABF01600083A62 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B48A6F2CA521CA0075C52A /* Lazybox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lazybox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73DA12652CAD8D6D000FB30D /* .swift-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-format"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -118,6 +120,7 @@
 		73B48A662CA521CA0075C52A = {
 			isa = PBXGroup;
 			children = (
+				73DA12652CAD8D6D000FB30D /* .swift-format */,
 				73B48A712CA521CA0075C52A /* Lazybox */,
 				7366DF512CABF01600083A62 /* ShareExtension */,
 				73D50C6C2CACE172004B71EE /* Frameworks */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73DA12662CAD8D6D000FB30D /* .swift-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

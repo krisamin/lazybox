@@ -15,18 +15,10 @@ class Link {
     var titlie: String = ""
     var desc: String = ""
     var host: String = ""
-    @Attribute(.externalStorage)
-    var image: Data?
+    @Attribute(.externalStorage) var image: Data?
     var dateAdded: Date = Date.now
 
-    init(
-        url: String,
-        titlie: String,
-        desc: String,
-        host: String,
-        image: Data? = nil,
-        dateAdded: Date = Date.now
-    ) {
+    init(url: String, titlie: String, desc: String, host: String, image: Data? = nil, dateAdded: Date = Date.now) {
         self.url = url
         self.titlie = titlie
         self.desc = desc
@@ -65,12 +57,9 @@ class LinkInfoFetchModel: ObservableObject {
 
     func fetchMetadata(from url: URL) async throws -> LinkInfo {
         let metadataProvider = LPMetadataProvider()
-        let metadata = try await metadataProvider.startFetchingMetadata(
-            for: url)
+        let metadata = try await metadataProvider.startFetchingMetadata(for: url)
 
-        guard let title = metadata.title else {
-            throw FetchError.invalidMetadata
-        }
+        guard let title = metadata.title else { throw FetchError.invalidMetadata }
         let desc = metadata.value(forKey: "_summary") as? String ?? ""
         let host = (url.host ?? "").replacingOccurrences(of: "www.", with: "")
         let image = try? await loadImage(from: metadata.imageProvider)
@@ -84,9 +73,7 @@ class LinkInfoFetchModel: ObservableObject {
         )
     }
 
-    private func loadImage(from provider: NSItemProvider?) async throws
-        -> UIImage?
-    {
+    private func loadImage(from provider: NSItemProvider?) async throws -> UIImage? {
         guard let provider = provider else { return nil }
 
         return try await withCheckedThrowingContinuation { continuation in
