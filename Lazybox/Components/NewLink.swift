@@ -32,8 +32,8 @@ struct NewLink: View {
                     MasonryVStack(columns: 2, spacing: 6) {
                         NewLinkBox(title: "Title", content: info.title)
                         NewLinkBox(title: "Description", content: info.desc)
-                        if let image = info.image {
-                            NewLinkBox(title: "Preview", image: image)
+                        if let cover = info.cover {
+                            NewLinkBox(title: "Preview", cover: cover)
                         }
                         NewLinkBox(title: "Host", content: info.host)
                     }.padding([.horizontal, .top], 6)
@@ -55,6 +55,7 @@ struct NewLink: View {
             .padding([.horizontal, .bottom], 6)
         }
         .background(Color("Background"))
+        .foregroundStyle(Color("Text"))
         .disabled(saving)
         .onAppear {
             UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
@@ -72,9 +73,14 @@ struct NewLink: View {
                 titlie: info.title,
                 desc: info.desc,
                 host: info.host,
-                image: info.image?.pngData()
+                cover: info.cover?.pngData(),
+                icon: info.icon?.pngData()
             )
-            context.insert(newLink)
+            let newItem = Item(
+                type: .link,
+                link: newLink
+            )
+            context.insert(newItem)
 
             do {
                 try context.save()
@@ -89,40 +95,32 @@ struct NewLink: View {
 struct NewLinkBox: View {
     let title: String
     let content: String?
-    let image: UIImage?
+    let cover: UIImage?
 
-    init(title: String, content: String? = nil, image: UIImage? = nil) {
+    init(title: String, content: String? = nil, cover: UIImage? = nil) {
         self.title = title
         self.content = content
-        self.image = image
+        self.cover = cover
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
                 .font(.system(size: 28, weight: .medium))
-                .foregroundStyle(Color("Text"))
             if let content = content {
                 Text(content)
                     .font(.system(size: 16))
-                    .foregroundStyle(Color("Text"))
                     .fixedSize(horizontal: false, vertical: true)
             }
-            if let image = image {
-                Image(uiImage: image)
+            if let cover = cover {
+                Image(uiImage: cover)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(6)
             }
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .padding(12)
         .background(Color("Card"))
-        .cornerRadius(18)
-        .overlay(
-            RoundedRectangle(cornerRadius: 18)
-                .inset(by: 0.5)
-                .stroke(Color("Border"), lineWidth: 1)
-        )
+        .border(Color("Border"), width: 1)
     }
 }

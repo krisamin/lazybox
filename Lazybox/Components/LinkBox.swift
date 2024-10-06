@@ -20,45 +20,37 @@ struct LinkBox: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            if let image = link.image {
-                Image(uiImage: UIImage(data: image)!)
+            if let cover = link.cover {
+                Image(uiImage: UIImage(data: cover)!)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(6)
                     .overlay(alignment: .bottomTrailing) {
                         VStack {
-                            HStack {
+                            HStack(spacing: 4) {
+                                if let icon = link.icon {
+                                    Image(uiImage: UIImage(data: icon)!)
+                                        .resizable()
+                                        .frame(width: 12, height: 12)
+                                        .cornerRadius(6)
+                                }
                                 Text(link.host)
                                     .font(.system(size: 10))
-                                    .foregroundColor(Color("Text"))
                             }
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 4)
-                            .background(Color("Card"))
-                            .cornerRadius(4)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .inset(by: 0.5)
-                                    .stroke(Color("Border"), lineWidth: 1)
-                            )
+                            .padding(4)
+                            .background(Color("Background"))
+                            .border(Color("Border"), width: 1)
                         }
                         .padding(2)
                     }
             }
             Text(link.titlie)
                 .font(.system(size: 16))
-                .foregroundStyle(Color("Text"))
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .padding(12)
         .background(Color("Card"))
-        .cornerRadius(18)
-        .overlay(
-            RoundedRectangle(cornerRadius: 18)
-                .inset(by: 0.5)
-                .stroke(Color("Border"), lineWidth: 1)
-        )
+        .border(Color("Border"), width: 1)
     }
 }

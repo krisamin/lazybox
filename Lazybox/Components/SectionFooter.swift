@@ -8,39 +8,29 @@
 //  https://isamin.kr
 //  https://github.com/krisamin
 //
-//  Created : 10/1/24
+//  Created : 10/5/24
 //  Package : Lazybox
-//  File    : Link.swift
+//  File    : SectionFooter.swift
 //
 
-import Foundation
-import SwiftData
+import SwiftUI
 
-@Model
-class Link {
-    var item: Item?
-    var url: String = ""
-    var titlie: String = ""
-    var desc: String = ""
-    var host: String = ""
-    @Attribute(.externalStorage)
-    var cover: Data?
-    @Attribute(.externalStorage)
-    var icon: Data?
+struct SectionFooter: View {
+    let title: String
+    let symbol: String
 
-    init(
-        url: String,
-        titlie: String,
-        desc: String,
-        host: String,
-        cover: Data? = nil,
-        icon: Data? = nil
-    ) {
-        self.url = url
-        self.titlie = titlie
-        self.desc = desc
-        self.host = host
-        self.cover = cover
-        self.icon = icon
+    var body: some View {
+        HStack(spacing: 24) {
+            Rectangle()
+                .fill(Color("Border"))
+                .frame(height: 1)
+            HStack(spacing: 12) {
+                Text(title)
+                    .font(.system(size: 24))
+                Image(symbol)
+            }
+        }
+        .padding([.horizontal], 12)
+        .padding([.vertical], 6)
     }
 }

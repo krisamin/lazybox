@@ -8,39 +8,26 @@
 //  https://isamin.kr
 //  https://github.com/krisamin
 //
-//  Created : 10/1/24
+//  Created : 10/5/24
 //  Package : Lazybox
-//  File    : Link.swift
+//  File    : Section.swift
 //
 
-import Foundation
-import SwiftData
+import SwiftUI
 
-@Model
-class Link {
-    var item: Item?
-    var url: String = ""
-    var titlie: String = ""
-    var desc: String = ""
-    var host: String = ""
-    @Attribute(.externalStorage)
-    var cover: Data?
-    @Attribute(.externalStorage)
-    var icon: Data?
+struct Section<Content: View>: View {
+    let title: String
+    let symbol: String
+    let actionSymbol: String
+    @MainActor let action: () -> Void
+    @ViewBuilder let content: () -> Content
 
-    init(
-        url: String,
-        titlie: String,
-        desc: String,
-        host: String,
-        cover: Data? = nil,
-        icon: Data? = nil
-    ) {
-        self.url = url
-        self.titlie = titlie
-        self.desc = desc
-        self.host = host
-        self.cover = cover
-        self.icon = icon
+    var body: some View {
+        VStack(spacing: 0) {
+            SectionTitle(title: title, symbol: symbol, actionSymbol: actionSymbol, action: action)
+            content()
+            SectionFooter(title: "Show All", symbol: "More")
+        }
+        .padding([.vertical], 6)
     }
 }

@@ -25,7 +25,6 @@ struct ActionButton: View {
                 .font(.system(size: 16))
             Spacer()
             Image(image)
-                .foregroundStyle(Color("Text"))
         }
         .padding(12)
         .background(Color("Card"))

@@ -45,16 +45,6 @@ struct Chip: View {
                 ? Color("Text")
                 : Color("Card")
         )
-        .cornerRadius(22)
-        .overlay(
-            RoundedRectangle(cornerRadius: 22)
-                .inset(by: 0.5)
-                .stroke(
-                    filled
-                        ? Color("Text")
-                        : Color("Border"),
-                    lineWidth: 1
-                )
-        )
+        .border(Color("Border"), width: 1)
     }
 }

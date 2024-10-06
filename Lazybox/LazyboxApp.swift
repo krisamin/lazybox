@@ -24,12 +24,13 @@ struct LazyboxApp: App {
         WindowGroup {
             ContentView()
                 .background(Color("Background"))
+                .foregroundStyle(Color("Text"))
         }
         .modelContainer(container)
     }
 
     init() {
-        let schema = Schema([Link.self])
+        let schema = Schema([Item.self])
         let config = ModelConfiguration(
             "Lazybox",
             schema: schema,
