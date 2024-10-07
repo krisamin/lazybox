@@ -10,29 +10,34 @@
 //
 //  Created : 10/6/24
 //  Package : Lazybox
-//  File    : Comment.swift
+//  File    : Masonry.swift
 //
 
-import Foundation
-import SwiftData
+import MasonryStack
+import SwiftUI
 
-@Model
-class Comment {
-    var dateAdded: Date = Date.now
-    var dateModified: Date = Date.now
-    var content: String = ""
+struct Masonry<Content: View>: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
-    var item: Item?
+    @ViewBuilder let content: () -> Content
 
-    init(
-        dateAdded: Date = Date.now,
-        dateModified: Date = Date.now,
-        content: String,
-        item: Item? = nil
-    ) {
-        self.dateAdded = dateAdded
-        self.dateModified = dateModified
-        self.content = content
-        self.item = item
+    @State private var columnCount: Int = 2
+
+    var body: some View {
+        MasonryVStack(
+            columns: columnCount,
+            spacing: 6
+        ) {
+            content()
+        }
+        .padding(6)
+        .background(
+            GeometryReader { (proxy) -> Color in
+                DispatchQueue.main.async {
+                    columnCount = horizontalSizeClass == .compact ? 2 : Int(round(Float(proxy.size.width) / 300.0))
+                }
+                return Color.clear
+            }
+        )
     }
 }

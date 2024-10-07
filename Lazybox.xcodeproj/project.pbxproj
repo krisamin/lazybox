@@ -55,11 +55,15 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Components/ActionButton.swift,
+				Components/Box.swift,
 				Components/Chip.swift,
+				Components/ItemBox.swift,
+				Components/Masonry.swift,
 				Components/NewLink.swift,
 				Components/Section.swift,
 				Components/SectionFooter.swift,
 				Components/SectionTitle.swift,
+				Components/TextBox.swift,
 				Models/Comment.swift,
 				Models/Item.swift,
 				Models/Link.swift,

@@ -8,31 +8,26 @@
 //  https://isamin.kr
 //  https://github.com/krisamin
 //
-//  Created : 10/6/24
+//  Created : 10/7/24
 //  Package : Lazybox
-//  File    : Comment.swift
+//  File    : TextField.swift
 //
 
-import Foundation
-import SwiftData
+import SwiftUI
 
-@Model
-class Comment {
-    var dateAdded: Date = Date.now
-    var dateModified: Date = Date.now
-    var content: String = ""
-
-    var item: Item?
-
-    init(
-        dateAdded: Date = Date.now,
-        dateModified: Date = Date.now,
-        content: String,
-        item: Item? = nil
-    ) {
-        self.dateAdded = dateAdded
-        self.dateModified = dateModified
-        self.content = content
-        self.item = item
+struct CustomTextFieldStyle: TextFieldStyle {
+    // swiftlint:disable:next identifier_name
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding([.horizontal], 16)
+            .frame(height: 42)
+            .frame(maxWidth: .infinity)
+            .font(.system(size: 16))
+            .background(Color("Card"))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .strokeBorder(Color("Border"), lineWidth: 1)
+            )
     }
 }

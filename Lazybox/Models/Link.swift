@@ -20,7 +20,7 @@ import SwiftData
 class Link {
     var item: Item?
     var url: String = ""
-    var titlie: String = ""
+    var title: String = ""
     var desc: String = ""
     var host: String = ""
     @Attribute(.externalStorage)
@@ -30,14 +30,14 @@ class Link {
 
     init(
         url: String,
-        titlie: String,
+        title: String,
         desc: String,
         host: String,
         cover: Data? = nil,
         icon: Data? = nil
     ) {
         self.url = url
-        self.titlie = titlie
+        self.title = title
         self.desc = desc
         self.host = host
         self.cover = cover

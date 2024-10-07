@@ -18,16 +18,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                RecentsSection()
-                Section(title: "Spaces", symbol: "Space", actionSymbol: "NewSpace", action: {}) {
-                }
-                Section(title: "Tags", symbol: "Tag", actionSymbol: "NewTag", action: {}) {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 24) {
+                    RecentsSection()
+                    SpacesSection()
+                    TagsSection()
                 }
             }
+            .scrollIndicators(.hidden)
         }
-        .scrollIndicators(.hidden)
     }
 }
 

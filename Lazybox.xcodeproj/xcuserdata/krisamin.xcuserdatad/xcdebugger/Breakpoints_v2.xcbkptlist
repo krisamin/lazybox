@@ -3,4 +3,38 @@
    uuid = "46673A43-C0DE-4CB9-A76A-2021AC0DA05A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FECFC840-97AF-4203-ACC0-970F284B73CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/lm/f0zylvrj2wn0d6hfq7m71nz80000gn/T/swift-generated-sources/@__swiftmacro_7Lazybox0019LinkViewswift_DJEEdfMX29_24_9PredicatefMf_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "init(link:)"
+            landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA8E46FB-7E36-48B2-9719-C476D17532E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/lm/f0zylvrj2wn0d6hfq7m71nz80000gn/T/swift-generated-sources/@__swiftmacro_7Lazybox0019LinkViewswift_DJEEdfMX32_30_9PredicatefMf_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "LinkView"
+            landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

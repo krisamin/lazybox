@@ -29,13 +29,13 @@ struct NewLink: View {
         VStack(alignment: .leading, spacing: 6) {
             if let info = model.info {
                 ScrollView {
-                    MasonryVStack(columns: 2, spacing: 6) {
-                        NewLinkBox(title: "Title", content: info.title)
-                        NewLinkBox(title: "Description", content: info.desc)
+                    Masonry {
                         if let cover = info.cover {
-                            NewLinkBox(title: "Preview", cover: cover)
+                            ItemBox(cover: cover)
                         }
-                        NewLinkBox(title: "Host", content: info.host)
+                        ItemBox(title: "Title", content: info.title)
+                        ItemBox(title: "Description", content: info.desc)
+                        ItemBox(title: "Host", content: info.host)
                     }.padding([.horizontal, .top], 6)
                 }.scrollIndicators(.hidden)
             } else {
@@ -70,7 +70,7 @@ struct NewLink: View {
             saving = true
             let newLink = Link(
                 url: info.url,
-                titlie: info.title,
+                title: info.title,
                 desc: info.desc,
                 host: info.host,
                 cover: info.cover?.pngData(),
@@ -89,38 +89,5 @@ struct NewLink: View {
                 print("저장 오류: \(error)")
             }
         }
-    }
-}
-
-struct NewLinkBox: View {
-    let title: String
-    let content: String?
-    let cover: UIImage?
-
-    init(title: String, content: String? = nil, cover: UIImage? = nil) {
-        self.title = title
-        self.content = content
-        self.cover = cover
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
-                .font(.system(size: 28, weight: .medium))
-            if let content = content {
-                Text(content)
-                    .font(.system(size: 16))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            if let cover = cover {
-                Image(uiImage: cover)
-                    .resizable()
-                    .scaledToFit()
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .topLeading)
-        .padding(12)
-        .background(Color("Card"))
-        .border(Color("Border"), width: 1)
     }
 }

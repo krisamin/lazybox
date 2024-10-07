@@ -20,7 +20,11 @@ struct Chip: View {
     let filled: Bool
     let fill: Bool
 
-    init(title: String, filled: Bool, fill: Bool = false) {
+    init(
+        title: String,
+        filled: Bool = false,
+        fill: Bool = false
+    ) {
         self.title = title
         self.filled = filled
         self.fill = fill
@@ -39,12 +43,16 @@ struct Chip: View {
                 .frame(maxWidth: fill ? .infinity : nil, alignment: .leading)
         }
         .padding([.horizontal], 16)
-        .padding([.vertical], 12)
+        .frame(height: 42)
         .background(
             filled
                 ? Color("Text")
                 : Color("Card")
         )
-        .border(Color("Border"), width: 1)
+        .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .strokeBorder(Color("Border"), lineWidth: 1)
+        )
     }
 }
