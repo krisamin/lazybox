@@ -46,7 +46,7 @@ struct LinkView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 6) {
+            VStack(spacing: 0) {
                 ScrollView {
                     VStack(spacing: 6) {
                         if let cover = link.cover {
@@ -128,10 +128,15 @@ struct LinkView: View {
                         .onSubmit {
                             sendComment()
                         }
-                    Chip(title: "Send", filled: true)
-                        .onTapGesture {
+                    Button(
+                        action: {
                             sendComment()
+                        },
+                        label: {
+                            Chip(title: "Send", filled: true)
                         }
+                    )
+                    Chip(title: "Send", filled: true)
                 }
                 .padding(6)
             }
@@ -141,6 +146,10 @@ struct LinkView: View {
             for controller in $0.viewControllers {
                 controller.view.backgroundColor = .clear
             }
+        }
+        .onAppear {
+            // haptic
+            UIImpactFeedbackGenerator().impactOccurred()
         }
         .background(Color("Background"))
         .alert("Delete Link", isPresented: $deleteConfirm) {

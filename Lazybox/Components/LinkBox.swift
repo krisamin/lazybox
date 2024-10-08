@@ -46,5 +46,6 @@ struct LinkBox: View {
             }
             .matchedTransitionSource(id: link.id, in: namespace)
         }
+        .buttonStyle(.plain)
     }
 }

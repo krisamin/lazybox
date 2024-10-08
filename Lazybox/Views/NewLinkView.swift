@@ -10,13 +10,13 @@
 //
 //  Created : 10/2/24
 //  Package : Lazybox
-//  File    : NewLink.swift
+//  File    : NewLinkView.swift
 //
 
 import MasonryStack
 import SwiftUI
 
-struct NewLink: View {
+struct NewLinkView: View {
     @Environment(\.modelContext) private var context
 
     @State private var saving = false
@@ -46,13 +46,21 @@ struct NewLink: View {
             }
             HStack(spacing: 6) {
                 Chip(title: url?.absoluteString ?? "", filled: false, fill: true)
-                Chip(title: "Save", filled: true)
-                    .onTapGesture { saveAndDismiss() }
-                Chip(title: "Cancel", filled: false)
-                    .onTapGesture { onDismiss() }
+                Button(
+                    action: { saveAndDismiss() },
+                    label: {
+                        Chip(title: "Save", filled: true)
+                    }
+                )
+                Button(
+                    action: { onDismiss() },
+                    label: {
+                        Chip(title: "Cancel", filled: false)
+                    }
+                )
             }
             .frame(maxWidth: .infinity)
-            .padding([.horizontal, .bottom], 6)
+            .padding(6)
         }
         .background(Color("Background"))
         .foregroundStyle(Color("Text"))

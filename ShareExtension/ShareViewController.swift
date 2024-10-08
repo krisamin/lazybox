@@ -75,7 +75,7 @@ class ShareViewController: UIViewController {
     private func handle(_ url: URL) {
         let container = setupModelContainer()
         let contentView = UIHostingController(
-            rootView: NewLink(
+            rootView: NewLinkView(
                 url: .constant(url),
                 onDismiss: { [weak self] in
                     self?.close()

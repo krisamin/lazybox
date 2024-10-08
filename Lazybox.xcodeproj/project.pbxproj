@@ -65,7 +65,6 @@
 				Components/HostOverlay.swift,
 				Components/ItemBox.swift,
 				Components/Masonry.swift,
-				Components/NewLink.swift,
 				Components/Section.swift,
 				Components/SectionFooter.swift,
 				Components/SectionTitle.swift,
@@ -85,6 +84,7 @@
 				"Resources/Fonts/WantedSans-Medium.ttf",
 				"Resources/Fonts/WantedSans-Regular.ttf",
 				"Resources/Fonts/WantedSans-SemiBold.ttf",
+				Views/NewLinkView.swift,
 			);
 			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
 		};

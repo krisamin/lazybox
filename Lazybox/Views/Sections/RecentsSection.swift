@@ -79,7 +79,7 @@ struct RecentsSection: View {
         .sheet(
             isPresented: $newLink,
             content: {
-                NewLink(url: $new) {
+                NewLinkView(url: $new) {
                     newLink = false
                 }
             }

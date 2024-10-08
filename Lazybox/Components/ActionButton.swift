@@ -34,19 +34,23 @@ struct ActionButton: View {
     }
 
     var body: some View {
-        Box {
-            HStack(spacing: 12) {
-                Image(symbol)
-                if fill {
-                    Spacer()
+        Button(
+            action: {
+                action?()
+            },
+            label: {
+                Box {
+                    HStack(spacing: 12) {
+                        Image(symbol)
+                        if fill {
+                            Spacer()
+                        }
+                        Text(title)
+                            .font(.system(size: 16))
+                    }
+                    .frame(maxWidth: fill ? .infinity : nil, alignment: .leading)
                 }
-                Text(title)
-                    .font(.system(size: 16))
             }
-            .frame(maxWidth: fill ? .infinity : nil, alignment: .leading)
-        }
-        .onTapGesture {
-            action?()
-        }
+        )
     }
 }
