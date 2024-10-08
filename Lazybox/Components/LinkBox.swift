@@ -32,28 +32,7 @@ struct LinkBox: View {
                         .scaledToFit()
                         .cornerRadius(12)
                         .overlay(alignment: .bottomTrailing) {
-                            VStack {
-                                HStack(spacing: 4) {
-                                    if let icon = link.icon {
-                                        Image(uiImage: UIImage(data: icon)!)
-                                            .resizable()
-                                            .frame(width: 12, height: 12)
-                                            .cornerRadius(6)
-                                    }
-                                    Text(link.host)
-                                        .font(.system(size: 10))
-                                }
-                                .padding([.vertical, .leading], 4)
-                                .padding([.trailing], 6)
-                                .background(Color("Background"))
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .inset(by: 0.5)
-                                        .stroke(Color("Border"), lineWidth: 1)
-                                )
-                            }
-                            .padding(2)
+                            HostOverlay(host: link.host, icon: link.icon)
                         }
                 }
                 VStack {

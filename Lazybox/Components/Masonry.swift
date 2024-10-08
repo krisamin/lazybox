@@ -32,7 +32,7 @@ struct Masonry<Content: View>: View {
         }
         .padding(6)
         .background(
-            GeometryReader { (proxy) -> Color in
+            GeometryReader { proxy -> Color in
                 DispatchQueue.main.async {
                     columnCount = horizontalSizeClass == .compact ? 2 : Int(round(Float(proxy.size.width) / 300.0))
                 }

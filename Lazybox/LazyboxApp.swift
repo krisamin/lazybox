@@ -23,8 +23,6 @@ struct LazyboxApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .background(Color("Background"))
-                .foregroundStyle(Color("Text"))
         }
         .modelContainer(container)
     }

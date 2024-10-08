@@ -23,22 +23,22 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
 
         guard let item = extensionContext?.inputItems.first as? NSExtensionItem,
-            let attachment = item.attachments?.first
+              let attachment = item.attachments?.first
         else {
-            self.close()
+            close()
             return
         }
 
         let typeIdentifiers = [
             UTType.url.identifier,
             UTType.text.identifier,
-            "public.file-url",
+            "public.file-url"
         ]
         for identifier in typeIdentifiers {
             attachment.loadItem(
                 forTypeIdentifier: identifier,
                 options: nil
-            ) { (item, error) in
+            ) { item, error in
                 DispatchQueue.main.async {
                     self.process(
                         item: item,
@@ -51,23 +51,21 @@ class ShareViewController: UIViewController {
     }
 
     private func process(item: Any?, error: Error?, identifier: String) {
-        if let error = error {
+        if let error {
             print("Error loading type \(identifier): \(error.localizedDescription)")
             return
         }
 
         if let urlString = item as? String,
-            let url = URL(string: urlString)
-        {
+           let url = URL(string: urlString) {
             handle(url)
         } else if let url = item as? URL {
             handle(url)
         } else if let data = item as? Data,
-            let url = URL(
-                dataRepresentation: data,
-                relativeTo: nil
-            )
-        {
+                  let url = URL(
+                      dataRepresentation: data,
+                      relativeTo: nil
+                  ) {
             handle(url)
         } else {
             print("Unsupported item format: \(String(describing: item))")
@@ -75,7 +73,7 @@ class ShareViewController: UIViewController {
     }
 
     private func handle(_ url: URL) {
-        let container = self.setupModelContainer()
+        let container = setupModelContainer()
         let contentView = UIHostingController(
             rootView: NewLink(
                 url: .constant(url),
@@ -86,20 +84,20 @@ class ShareViewController: UIViewController {
             .modelContainer(container)
         )
 
-        self.addChild(contentView)
-        self.view.addSubview(contentView.view)
+        addChild(contentView)
+        view.addSubview(contentView.view)
 
         contentView.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentView.view.topAnchor.constraint(equalTo: self.view.topAnchor),
-            contentView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            contentView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            contentView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            contentView.view.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 
     private func close() {
-        self.extensionContext?.completeRequest(
+        extensionContext?.completeRequest(
             returningItems: [],
             completionHandler: nil
         )

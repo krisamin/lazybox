@@ -15,6 +15,7 @@
 
 import SwiftData
 import SwiftUI
+import SwiftUIIntrospect
 
 struct ContentView: View {
     var body: some View {
@@ -28,6 +29,13 @@ struct ContentView: View {
             }
             .scrollIndicators(.hidden)
         }
+        .introspect(.navigationStack, on: .iOS(.v18)) {
+            for controller in $0.viewControllers {
+                controller.view.backgroundColor = .clear
+            }
+        }
+        .background(Color("Background"))
+        .foregroundStyle(Color("Text"))
     }
 }
 
@@ -35,7 +43,5 @@ struct ContentView: View {
     let preview = Preview(Item.self)
 
     ContentView()
-        .background(Color("Background"))
-        .foregroundStyle(Color("Text"))
         .modelContainer(preview.container)
 }

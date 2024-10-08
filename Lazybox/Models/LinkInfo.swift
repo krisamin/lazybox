@@ -66,11 +66,11 @@ class LinkInfoFetchModel: ObservableObject {
     }
 
     private func loadImage(from provider: NSItemProvider?, resize: Bool = false) async throws -> UIImage? {
-        guard let provider = provider else { return nil }
+        guard let provider else { return nil }
 
         return try await withCheckedThrowingContinuation { continuation in
             provider.loadObject(ofClass: UIImage.self) { object, error in
-                if let error = error {
+                if let error {
                     continuation.resume(throwing: error)
                 } else if let image = object as? UIImage {
                     if resize {

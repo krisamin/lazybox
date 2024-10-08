@@ -44,7 +44,7 @@ struct NewLink: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            HStack {
+            HStack(spacing: 6) {
                 Chip(title: url?.absoluteString ?? "", filled: false, fill: true)
                 Chip(title: "Save", filled: true)
                     .onTapGesture { saveAndDismiss() }
@@ -59,7 +59,7 @@ struct NewLink: View {
         .disabled(saving)
         .onAppear {
             UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
-            if let url = url {
+            if let url {
                 model.fetch(from: url)
             }
         }

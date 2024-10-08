@@ -17,22 +17,36 @@ import SwiftUI
 
 struct ActionButton: View {
     let title: String
-    let image: String
+    let symbol: String
+    let fill: Bool
+    let action: (() -> Void)?
+
+    init(
+        title: String,
+        symbol: String,
+        fill: Bool = false,
+        action: (() -> Void)? = nil
+    ) {
+        self.title = title
+        self.symbol = symbol
+        self.fill = fill
+        self.action = action
+    }
 
     var body: some View {
-        HStack {
-            Text(title)
-                .font(.system(size: 16))
-            Spacer()
-            Image(image)
+        Box {
+            HStack(spacing: 12) {
+                Image(symbol)
+                if fill {
+                    Spacer()
+                }
+                Text(title)
+                    .font(.system(size: 16))
+            }
+            .frame(maxWidth: fill ? .infinity : nil, alignment: .leading)
         }
-        .padding(12)
-        .background(Color("Card"))
-        .cornerRadius(18)
-        .overlay(
-            RoundedRectangle(cornerRadius: 18)
-                .inset(by: 0.5)
-                .stroke(Color("Border"), lineWidth: 1)
-        )
+        .onTapGesture {
+            action?()
+        }
     }
 }

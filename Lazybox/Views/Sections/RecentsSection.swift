@@ -98,7 +98,7 @@ struct RecentsSection: View {
     func paste() {
         if let pasteString = UIPasteboard.general.url {
             if let url = URL(string: pasteString.absoluteString) {
-                self.new = url
+                new = url
                 newLink.toggle()
             }
         }

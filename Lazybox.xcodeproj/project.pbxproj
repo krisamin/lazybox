@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730AF5462CB4D81900699A1C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 730AF5452CB4D81900699A1C /* SwiftUIIntrospect */; };
+		7314748B2CB4CE4600DC5A45 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 731474892CB4CE4600DC5A45 /* .swiftlint.yml */; };
+		7314748C2CB4CE4600DC5A45 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 731474882CB4CE4600DC5A45 /* .swift-version */; };
+		7314748D2CB4CE4600DC5A45 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 7314748A2CB4CE4600DC5A45 /* .swiftformat */; };
 		7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7366DF502CABF01600083A62 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73D50C6D2CACE172004B71EE /* MasonryStack */; };
-		73DA12662CAD8D6D000FB30D /* .swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 73DA12652CAD8D6D000FB30D /* .swift-format */; };
 		73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73F43E0E2CA531BF005AEC6C /* MasonryStack */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +41,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		731474882CB4CE4600DC5A45 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		731474892CB4CE4600DC5A45 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		7314748A2CB4CE4600DC5A45 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		7366DF502CABF01600083A62 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B48A6F2CA521CA0075C52A /* Lazybox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lazybox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		73DA12652CAD8D6D000FB30D /* .swift-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-format"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -57,6 +62,7 @@
 				Components/ActionButton.swift,
 				Components/Box.swift,
 				Components/Chip.swift,
+				Components/HostOverlay.swift,
 				Components/ItemBox.swift,
 				Components/Masonry.swift,
 				Components/NewLink.swift,
@@ -125,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */,
+				730AF5462CB4D81900699A1C /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,11 +141,13 @@
 		73B48A662CA521CA0075C52A = {
 			isa = PBXGroup;
 			children = (
-				73DA12652CAD8D6D000FB30D /* .swift-format */,
 				73B48A712CA521CA0075C52A /* Lazybox */,
 				7366DF512CABF01600083A62 /* ShareExtension */,
 				73D50C6C2CACE172004B71EE /* Frameworks */,
 				73B48A702CA521CA0075C52A /* Products */,
+				731474882CB4CE4600DC5A45 /* .swift-version */,
+				731474892CB4CE4600DC5A45 /* .swiftlint.yml */,
+				7314748A2CB4CE4600DC5A45 /* .swiftformat */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,11 +201,12 @@
 				73B48A6C2CA521CA0075C52A /* Frameworks */,
 				73B48A6D2CA521CA0075C52A /* Resources */,
 				7366DF002CABE93000083A62 /* Embed Foundation Extensions */,
+				731474932CB4CE9800DC5A45 /* SwiftFormat */,
+				731474942CB4CEA100DC5A45 /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				73AE45132CA559F3001292BC /* PBXTargetDependency */,
 				7366DF592CABF01600083A62 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -205,6 +215,7 @@
 			name = Lazybox;
 			packageProductDependencies = (
 				73F43E0E2CA531BF005AEC6C /* MasonryStack */,
+				730AF5452CB4D81900699A1C /* SwiftUIIntrospect */,
 			);
 			productName = Lazybox;
 			productReference = 73B48A6F2CA521CA0075C52A /* Lazybox.app */;
@@ -239,7 +250,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */,
-				73AE45112CA559DC001292BC /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				7314748F2CB4CE7A00DC5A45 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+				731474902CB4CE8300DC5A45 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				730AF5442CB4D81900699A1C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 73B48A702CA521CA0075C52A /* Products */;
@@ -264,11 +277,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73DA12662CAD8D6D000FB30D /* .swift-format in Resources */,
+				7314748B2CB4CE4600DC5A45 /* .swiftlint.yml in Resources */,
+				7314748C2CB4CE4600DC5A45 /* .swift-version in Resources */,
+				7314748D2CB4CE4600DC5A45 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		731474932CB4CE9800DC5A45 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		731474942CB4CEA100DC5A45 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint --fix && swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7366DF4C2CABF01600083A62 /* Sources */ = {
@@ -292,10 +348,6 @@
 			isa = PBXTargetDependency;
 			target = 7366DF4F2CABF01600083A62 /* ShareExtension */;
 			targetProxy = 7366DF582CABF01600083A62 /* PBXContainerItemProxy */;
-		};
-		73AE45132CA559F3001292BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 73AE45122CA559F3001292BC /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -397,7 +449,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -462,7 +514,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -606,9 +658,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		73AE45112CA559DC001292BC /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+		730AF5442CB4D81900699A1C /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint";
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		7314748F2CB4CE7A00DC5A45 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.5;
+			};
+		};
+		731474902CB4CE8300DC5A45 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.57.0;
@@ -625,10 +693,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		73AE45122CA559F3001292BC /* SwiftLintBuildToolPlugin */ = {
+		730AF5452CB4D81900699A1C /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 73AE45112CA559DC001292BC /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
+			package = 730AF5442CB4D81900699A1C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 		73D50C6D2CACE172004B71EE /* MasonryStack */ = {
 			isa = XCSwiftPackageProductDependency;
