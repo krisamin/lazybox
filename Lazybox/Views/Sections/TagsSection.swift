@@ -36,20 +36,18 @@ struct TagsSection: View {
                 newTag.toggle()
             },
             content: {
-                Masonry {
-                    ForEach(tags) { tag in
-                        LazyVStack {
-                            TextBox(title: tag.name)
-                                .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        delete = tag
-                                        deleteTag.toggle()
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
+                Grid(list: tags) { tag in
+                    LazyVStack {
+                        TextBox(title: tag.name)
+                            .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    delete = tag
+                                    deleteTag.toggle()
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
-                        }
+                            }
                     }
                 }
             }

@@ -36,21 +36,18 @@ struct SpacesSection: View {
                 newSpace.toggle()
             },
             content: {
-                Masonry {
-                    TextBox(title: "Drafts")
-                    ForEach(spaces) { space in
-                        LazyVStack {
-                            TextBox(title: space.name)
-                                .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        delete = space
-                                        deleteSpace.toggle()
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
+                Grid(list: spaces) { space in
+                    LazyVStack {
+                        TextBox(title: space.name)
+                            .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    delete = space
+                                    deleteSpace.toggle()
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
-                        }
+                            }
                     }
                 }
             }

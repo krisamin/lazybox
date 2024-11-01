@@ -50,13 +50,19 @@ struct LinkView: View {
                 ScrollView {
                     VStack(spacing: 6) {
                         if let cover = link.cover {
-                            Image(uiImage: UIImage(data: cover)!)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(12)
+                            Color.clear
+                                .frame(maxWidth: .infinity)
+                                .aspectRatio(1, contentMode: .fit)
+                                .overlay {
+                                    Image(uiImage: UIImage(data: cover)!)
+                                        .resizable()
+                                        .scaledToFill()
+                                }
                                 .overlay(alignment: .bottomTrailing) {
                                     HostOverlay(host: link.host, icon: link.icon)
                                 }
+                                .cornerRadius(12)
+                                .clipped()
                         }
                         HStack(spacing: 6) {
                             ActionButton(
@@ -136,11 +142,9 @@ struct LinkView: View {
                             Chip(title: "Send", filled: true)
                         }
                     )
-                    Chip(title: "Send", filled: true)
                 }
                 .padding(6)
             }
-            .navigationBarBackButtonHidden()
         }
         .introspect(.navigationStack, on: .iOS(.v18)) {
             for controller in $0.viewControllers {
@@ -148,7 +152,6 @@ struct LinkView: View {
             }
         }
         .onAppear {
-            // haptic
             UIImpactFeedbackGenerator().impactOccurred()
         }
         .background(Color("Background"))

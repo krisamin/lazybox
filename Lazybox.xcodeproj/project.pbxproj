@@ -12,8 +12,6 @@
 		7314748C2CB4CE4600DC5A45 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 731474882CB4CE4600DC5A45 /* .swift-version */; };
 		7314748D2CB4CE4600DC5A45 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 7314748A2CB4CE4600DC5A45 /* .swiftformat */; };
 		7366DF5A2CABF01600083A62 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7366DF502CABF01600083A62 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73D50C6D2CACE172004B71EE /* MasonryStack */; };
-		73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */ = {isa = PBXBuildFile; productRef = 73F43E0E2CA531BF005AEC6C /* MasonryStack */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +60,9 @@
 				Components/ActionButton.swift,
 				Components/Box.swift,
 				Components/Chip.swift,
+				Components/Grid.swift,
 				Components/HostOverlay.swift,
 				Components/ItemBox.swift,
-				Components/Masonry.swift,
 				Components/Section.swift,
 				Components/SectionFooter.swift,
 				Components/SectionTitle.swift,
@@ -122,7 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73D50C6E2CACE172004B71EE /* MasonryStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +127,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F43E0F2CA531BF005AEC6C /* MasonryStack in Frameworks */,
 				730AF5462CB4D81900699A1C /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +183,6 @@
 			);
 			name = ShareExtension;
 			packageProductDependencies = (
-				73D50C6D2CACE172004B71EE /* MasonryStack */,
 			);
 			productName = ShareExtension;
 			productReference = 7366DF502CABF01600083A62 /* ShareExtension.appex */;
@@ -214,7 +209,6 @@
 			);
 			name = Lazybox;
 			packageProductDependencies = (
-				73F43E0E2CA531BF005AEC6C /* MasonryStack */,
 				730AF5452CB4D81900699A1C /* SwiftUIIntrospect */,
 			);
 			productName = Lazybox;
@@ -249,7 +243,6 @@
 			mainGroup = 73B48A662CA521CA0075C52A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */,
 				7314748F2CB4CE7A00DC5A45 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
 				731474902CB4CE8300DC5A45 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 				730AF5442CB4D81900699A1C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
@@ -682,14 +675,6 @@
 				minimumVersion = 0.57.0;
 			};
 		};
-		73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lukepistrol/MasonryStack.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -697,16 +682,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 730AF5442CB4D81900699A1C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
 			productName = SwiftUIIntrospect;
-		};
-		73D50C6D2CACE172004B71EE /* MasonryStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */;
-			productName = MasonryStack;
-		};
-		73F43E0E2CA531BF005AEC6C /* MasonryStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 73F43E0D2CA531BF005AEC6C /* XCRemoteSwiftPackageReference "MasonryStack" */;
-			productName = MasonryStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -18,33 +18,33 @@ import SwiftUI
 struct LinkBox: View {
     let link: Link
 
-    @Namespace private var namespace
-
     var body: some View {
         NavigationLink {
             LinkView(link: link)
-                .navigationTransition(.zoom(sourceID: link.id, in: namespace))
         } label: {
-            Box(padding: false) {
-                if let cover = link.cover {
-                    Image(uiImage: UIImage(data: cover)!)
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(12)
-                        .overlay(alignment: .bottomTrailing) {
-                            HostOverlay(host: link.host, icon: link.icon)
+            Box(padding: false, square: true) {
+                Color.clear
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .overlay {
+                        if let cover = link.cover {
+                            Image(uiImage: UIImage(data: cover)!)
+                                .resizable()
+                                .scaledToFill()
                         }
-                }
+                    }
+                    .overlay(alignment: .bottomTrailing) {
+                        HostOverlay(host: link.host, icon: link.icon)
+                    }
+                    .cornerRadius(12)
+                    .clipped()
                 VStack {
                     Text(link.title)
                         .font(.system(size: 16))
-                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .topLeading)
-                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(12)
             }
-            .matchedTransitionSource(id: link.id, in: namespace)
         }
         .buttonStyle(.plain)
     }

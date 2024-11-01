@@ -35,40 +35,38 @@ struct RecentsSection: View {
                 paste()
             },
             content: {
-                Masonry {
-                    ForEach(items) { item in
-                        LazyVStack {
-                            switch ItemType(rawValue: item.type)! {
-                            case .link:
-                                if let link = item.link {
-                                    LinkBox(link: link)
-                                        .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
-                                        .contextMenu {
-                                            Button {
-                                                UIPasteboard.general.url = URL(string: link.url)!
-                                            } label: {
-                                                Label("Copy", systemImage: "doc.on.doc")
-                                            }
-                                            ShareLink(
-                                                item: URL(string: link.url)!
-                                            ) {
-                                                Label("Share", systemImage: "square.and.arrow.up")
-                                            }
-                                            Divider()
-                                            Button(role: .destructive) {
-                                                delete = item
-                                                deleteLink.toggle()
-                                            } label: {
-                                                Label("Delete", systemImage: "trash")
-                                            }
+                Grid(list: items) { item in
+                    LazyVStack {
+                        switch ItemType(rawValue: item.type)! {
+                        case .link:
+                            if let link = item.link {
+                                LinkBox(link: link)
+                                    .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 12))
+                                    .contextMenu {
+                                        Button {
+                                            UIPasteboard.general.url = URL(string: link.url)!
+                                        } label: {
+                                            Label("Copy", systemImage: "doc.on.doc")
                                         }
-                                }
-                            case .note:
-                                if let note = item.note {
-                                    VStack {
-                                        Text(note.title)
-                                        Text("WIP")
+                                        ShareLink(
+                                            item: URL(string: link.url)!
+                                        ) {
+                                            Label("Share", systemImage: "square.and.arrow.up")
+                                        }
+                                        Divider()
+                                        Button(role: .destructive) {
+                                            delete = item
+                                            deleteLink.toggle()
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
                                     }
+                            }
+                        case .note:
+                            if let note = item.note {
+                                VStack {
+                                    Text(note.title)
+                                    Text("WIP")
                                 }
                             }
                         }

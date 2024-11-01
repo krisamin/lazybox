@@ -13,7 +13,6 @@
 //  File    : NewLinkView.swift
 //
 
-import MasonryStack
 import SwiftUI
 
 struct NewLinkView: View {
@@ -29,7 +28,7 @@ struct NewLinkView: View {
         VStack(alignment: .leading, spacing: 6) {
             if let info = model.info {
                 ScrollView {
-                    Masonry {
+                    VStack {
                         if let cover = info.cover {
                             ItemBox(cover: cover)
                         }
